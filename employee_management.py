@@ -27,7 +27,7 @@ class Employee:
 class Department:
     def __init__(self, department_name):
         self.department_name = department_name
-        self.employees = []  # List of Employee objects
+        self.employees = [] 
     
     def add_employee(self, employee):
         """Add an employee to the department"""
@@ -116,10 +116,10 @@ def get_valid_salary():
 
 def main():
     """Main interactive function"""
-    # Initialize department
+    
     department = Department("Information Technology")
     
-    # Add some sample employees
+    
     sample_employees = [
         Employee("John Smith", "E001", 65000.00),
         Employee("Sarah Johnson", "E002", 72000.00),
@@ -128,7 +128,7 @@ def main():
         Employee("David Wilson", "E005", 75000.00)
     ]
     
-    # Add employees to the department
+    
     for employee in sample_employees:
         department.add_employee(employee)
     
@@ -139,7 +139,7 @@ def main():
         choice = get_valid_choice("Enter your choice (1-7): ", 7)
         
         if choice == 1:
-            # Display department information
+            
             print(f"\nDepartment Information:")
             print(f"Department: {department.department_name}")
             print(f"Number of Employees: {len(department.employees)}")
@@ -150,15 +150,15 @@ def main():
                 print(f"Average Salary: ${average_salary:,.2f}")
             
         elif choice == 2:
-            # Display all employees
+            
             department.display_all_employees()
             
         elif choice == 3:
-            # Add a new employee
+           
             name = input("Enter employee name: ")
             employee_id = input("Enter employee ID: ")
             
-            # Check if employee ID already exists
+            
             if department.find_employee_by_id(employee_id):
                 print(f"Employee with ID {employee_id} already exists!")
             else:
@@ -167,7 +167,7 @@ def main():
                 department.add_employee(new_employee)
                 
         elif choice == 4:
-            # Update employee salary
+           
             department.display_all_employees()
             if department.employees:
                 employee_choice = get_valid_choice("Enter employee number: ", len(department.employees))
@@ -178,11 +178,11 @@ def main():
                 employee.update_salary(new_salary)
                 
         elif choice == 5:
-            # Display total salary expenditure
+           
             department.display_total_salary_expenditure()
             
         elif choice == 6:
-            # Display individual employee details
+            
             department.display_all_employees()
             if department.employees:
                 employee_choice = get_valid_choice("Enter employee number: ", len(department.employees))

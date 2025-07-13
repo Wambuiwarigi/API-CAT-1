@@ -2,7 +2,7 @@ class Student:
     def __init__(self, name, student_id):
         self.name = name
         self.student_id = student_id
-        self.assignments = {}  # Dictionary with assignment names as keys and grades as values
+        self.assignments = {}  
     
     def add_assignment_and_grade(self, assignment_name, grade):
         """Add an assignment and grade to the student's record"""
@@ -21,7 +21,7 @@ class Student:
             print("-" * 50)
             for assignment, grade in self.assignments.items():
                 print(f"{assignment}: {grade}%")
-            # Calculate average
+           
             average = sum(self.assignments.values()) / len(self.assignments)
             print(f"Average Grade: {average:.2f}%")
     
@@ -33,7 +33,7 @@ class Instructor:
     def __init__(self, name, course_name):
         self.name = name
         self.course_name = course_name
-        self.students = []  # List of Student objects
+        self.students = []  
     
     def add_student(self, student):
         """Add a student to the course"""
@@ -127,10 +127,10 @@ def get_valid_grade():
 
 def main():
     """Main interactive function"""
-    # Initialize instructor and course
+    
     instructor = Instructor("Dr. Sarah Johnson", "Introduction to Computer Science")
     
-    # Add some sample students
+   
     sample_students = [
         Student("Alice Brown", "S001"),
         Student("Bob Wilson", "S002"),
@@ -138,11 +138,11 @@ def main():
         Student("David Miller", "S004")
     ]
     
-    # Add students to the course
+    
     for student in sample_students:
         instructor.add_student(student)
     
-    # Add some sample grades
+   
     instructor.assign_grade("S001", "Assignment 1", 85)
     instructor.assign_grade("S001", "Assignment 2", 92)
     instructor.assign_grade("S002", "Assignment 1", 78)
@@ -157,22 +157,22 @@ def main():
         choice = get_valid_choice("Enter your choice (1-7): ", 7)
         
         if choice == 1:
-            # Display course information
+            
             print(f"\nCourse Information:")
             print(f"Instructor: {instructor.name}")
             print(f"Course: {instructor.course_name}")
             print(f"Number of Students: {len(instructor.students)}")
             
         elif choice == 2:
-            # List all students
+            
             instructor.list_students()
             
         elif choice == 3:
-            # Add a new student
+            
             name = input("Enter student name: ")
             student_id = input("Enter student ID: ")
             
-            # Check if student ID already exists
+            
             if instructor.find_student_by_id(student_id):
                 print(f"Student with ID {student_id} already exists!")
             else:
@@ -180,7 +180,7 @@ def main():
                 instructor.add_student(new_student)
                 
         elif choice == 4:
-            # Assign a grade to a student
+            
             instructor.list_students()
             if instructor.students:
                 student_choice = get_valid_choice("Enter student number: ", len(instructor.students))
@@ -192,11 +192,11 @@ def main():
                 instructor.assign_grade(student.student_id, assignment_name, grade)
                 
         elif choice == 5:
-            # Display all students and their grades
+            
             instructor.display_all_students_and_grades()
             
         elif choice == 6:
-            # Display individual student grades
+           
             instructor.list_students()
             if instructor.students:
                 student_choice = get_valid_choice("Enter student number: ", len(instructor.students))
